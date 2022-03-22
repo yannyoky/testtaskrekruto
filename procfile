@@ -1,1 +1,1 @@
-worker: python3 rekrutotask.py
+web: python3 rekrutotask.py
