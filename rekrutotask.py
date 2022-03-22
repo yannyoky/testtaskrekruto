@@ -1,11 +1,15 @@
-import flask
+from flask import Flask, request
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
 def main():
     try:
-        return 'hello world'
-    except KeyError:
-        return f'Invalid input'
+        name = request.args['name']
+        message = request.args['message']
+        return '''<h1>{}</h1><h1>{}</h1>'''.format(name, message)
+    except:
+        name = 'Rekruto'
+        message = 'Давай дружить'
+        return '''<h1>{}</h1><h1>{}</h1>'''.format(name, message)
